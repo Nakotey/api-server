@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const port = 3000;
+const port = 8000;
 
 animals = [
     {
@@ -27,10 +27,26 @@ companies = [
     }
 ]
 
+foods = [
+    {
+        name: "Banku",
+        price: 25
+    },
+
+    {
+        name: "Fufu",
+        price: 35
+    }
+]
+
 
 app.get('/', (req, res) => {
-    res.send('Welcome to express');
+    res.send('<h1> Welcome to the CLIENT SIDE!!</h1>');
 });
+
+app.get('/api', (req, res) => {
+    res.send('<h1>Welcome to SERVER SIDE!!</h1>');
+})
 
 app.get('/animals', (req, res) => {
     res.json(animals);
@@ -38,6 +54,10 @@ app.get('/animals', (req, res) => {
 
 app.get('/companies', (req, res) => {
     res.json(companies);
+})
+
+app.get('/foods', (req, res) => {
+    res.json(foods);
 })
 
 app.listen(port, console.log('Server listening on ' + port));
